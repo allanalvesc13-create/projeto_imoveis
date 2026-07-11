@@ -1,0 +1,182 @@
+body {
+    color: #000000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("imagens/Gemini_Generated_Image_uz0b48uz0b48uz0b.png?v=1");
+    background-size: cover;
+    background-position: right 70%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #f5f5f5;
+}
+
+/* Overlay sutil para melhorar legibilidade */
+body {
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.28);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Alinhamento dos títulos no topo esquerdo */
+body > h1,
+body > p,
+body > h2 {
+    max-width: 500px;
+    margin-left: 5%;
+    margin-right: auto;
+    padding: 0 1rem;
+    color: #fff; /* Deixei os textos do topo brancos para contrastar melhor com a foto */
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+}
+
+/* FORMULÁRIO ORGANIZADO EM GRID */
+form {
+    max-width: 500px; /* Largura perfeita para duas colunas */
+    margin-left: 5%;  
+    margin-right: auto;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.95);
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Divide o espaço em 6 partes iguais */
+    gap: 0.75rem;
+}
+
+/* CLASSES DE ORGANIZAÇÃO DOS CAMPOS */
+.field {
+    position: relative;
+    grid-column: span 6; /* Por padrão, o campo ocupa a linha inteira */
+}
+
+/* Campos que vão ficar lado a lado (Metade da linha cada um) */
+.field.metade {
+    grid-column: span 3;
+}
+
+/* Campos bem pequenos (ex: Número e CEP) */
+.field.um-terco {
+    grid-column: span 2;
+}
+
+/* Campos médios que completam a linha dos pequenos (ex: Endereço e Cidade) */
+.field.dois-tercos {
+    grid-column: span 4;
+}
+
+/* O botão de submit sempre ocupa a linha inteira no final */
+button, input[type="submit"] {
+    grid-column: span 6;
+}
+
+/* ESTILIZAÇÃO DOS INPUTS E LABELS (Suas animações originais) */
+.field label {
+    position: absolute;
+    left: 1rem;
+    top: 1.1rem;
+    pointer-events: none;
+    transition: transform 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+    background: #fff;
+    padding: 0 0.25rem;
+    color: #666;
+}
+
+.field input,
+.field button,
+button,
+input[type="submit"] {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 2px solid #000000;
+    font-size: 1rem;
+}
+
+.field input {
+    color: #111;
+    background: #fff;
+    padding: 1.4rem 1rem 0.75rem;
+    min-height: 3.5rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* ANIMAÇÃO DO LABEL FLUTUANTE */
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label {
+    transform: translateY(-180%);
+    font-size: 0.75rem;
+    color: #1a6c3f;
+}
+
+button,
+input[type="submit"] {
+    cursor: pointer;
+    background: #1a6c3f;
+    color: #fff;
+    border-color: #166237;
+    padding: 1rem;
+    font-weight: bold;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background: #166237;
+}
+
+input[type="submit"] {
+    border: none;
+}
+    
+/* VALIDAÇÃO EM TEMPO REAL */
+.field input:not(:placeholder-shown):invalid {
+    border-color: #e63946;
+    background-color: #fff5f5;
+}
+
+.field input:not(:placeholder-shown):invalid ~ label {
+    color: #e63946;
+}
+
+.field input:focus:valid,
+.field input:not(:placeholder-shown):valid {
+    border-color: #2ec4b6;
+    background-color: #f0fdfa;
+}
+
+.field input:focus:valid ~ label,
+.field input:not(:placeholder-shown):valid ~ label {
+    color: #2ec4b6;
+}
+@view-transition {
+    transition: 0.3s ease;
+    navigate: auto; 
+}
+
+::view-transition(){
+  animation-duration: 1s;
+}
+
+
+body.imoveis-page {
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    background-image: url("imagens/Copilot_20260708_160717.png");
+    background-size: cover;
+    background-position: center;
+}

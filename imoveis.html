@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo de Imóveis</title>
+    <link rel="stylesheet" href="a.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body class="imoveis-page">
+    <div class="container">
+        <h1>Imóveis Disponíveis para Aluguel</h1>
+        <p>Bem-vindo! Aqui você verá a lista de casas e apartamentos.</p>
+        
+       
+        <div class="imovel-card">
+            <h3>Apartamento no Centro</h3>
+            <p>2 Quartos (1 suíte), 1 Banheiro, 1 Vaga de Garagem</p>
+            <p>contato:(91) 98542-1920</p>
+        </div>
+    </div>
+
+    <div class="carrossel-container">
+        <div class="slides" id="slides-conteiner">
+            {% for foto in apartamento.fotos %}
+                <img src="{{ url_for('static', filename='imagens/' + foto) }}" class="slide-img">
+            {% endfor %}
+        </div>
+
+        <button class="btn-nav btn-esquerda" onclick="mudarSlide(-1)">❮</button>
+        <button class="btn-nav btn-direita" onclick="mudarSlide(1)">❯</button>
+    </div>
+
+<style>
+.carrossel-container {
+    position: relative;
+    max-width: 800px;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    margin: 30px auto;
+}
+.slides {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    width: 100%;
+    height: 100%;
+}
+.slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.btn-nav {
+    position: absolute;
+    bottom: 15px;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    border: 2px solid white;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+    z-index: 2;
+}
+.btn-nav:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+.btn-esquerda { left: 12px; }
+.btn-direita { right: 12px; }
+</style>
+
+<script>
+let indiceAtual = 0;
+
+function mudarSlide(direcao) {
+    const container = document.getElementById('slides-conteiner');
+    const totalImagens = container.children.length;
+
+    // Atualiza o índice
+    indiceAtual += direcao;
+
+    // Se passar da última, volta para a primeira
+    if (indiceAtual >= totalImagens) indiceAtual = 0;
+    // Se voltar da primeira, vai para a última
+    if (indiceAtual < 0) indiceAtual = totalImagens - 1;
+
+    // Move o container horizontalmente baseado no tamanho da imagem (100%)
+    container.style.transform = `translateX(${-indiceAtual * 100}%)`;
+}
+</script>
+</body>
+</html>

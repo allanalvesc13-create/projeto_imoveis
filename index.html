@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluguel de Imóveis</title>
+    <link rel="stylesheet" href="a.css">
+   
+    
+</head>
+<body>
+    <h1>Aluguel de Imóveis</h1>
+    <p>Bem-vindo ao nosso site de aluguel de imóveis!</p>
+    <h2>Faça seu login para acessar as funcionalidades do site:</h2>
+    <form action="/login" method="post">
+        <div class="field">
+            <input type="text" id="username" name="username" placeholder=" " required>
+            <label for="username">Nome:</label>
+        </div>
+        <div class="field">
+            <input type="email" id="email" name="email" placeholder=" " required>
+            <label for="email">Email:</label>
+        </div>
+        <div class="field">
+            <input type="password" id="password" name="password" placeholder=" " pattern="^(?=.*[A-Z])(?=.*[a-z]).{1,8}$" title="A senha deve ter: 1 letra maiúscula, 1 letra minúscula e no máximo 8 caracteres" required>
+            <label for="password">Senha (1 maiúscula, 1 minúscula, até 8 caracteres):</label>
+        </div>
+        <div class="field field-cep">
+            <input type="text" id="cep" name="cep" placeholder=" " required>
+            <label for="cep">CEP:</label>
+        </div>
+        <div class="field">
+            <input type="text" id="endereco" name="endereco" placeholder=" ">
+            <label for="endereco">Endereço:</label>
+        </div>
+        <div class="field">
+            <input type="text" id="bairro" name="bairro" placeholder=" ">
+            <label for="bairro">Bairro:</label>
+        </div>
+        <div class="field">
+            <input type="text" id="cidade" name="cidade" placeholder=" ">
+            <label for="cidade">Cidade:</label>
+        </div>
+        <div class="field">
+            <input type="text" id="numero" name="numero" placeholder=" " required>
+            <label for="numero">Número:</label>
+        </div>
+        <div class="field">
+            <input type="text" id="complemento" name="complemento" placeholder=" ">
+            <label for="complemento">Complemento:</label>
+        </div>
+        <input type="submit" value="Login">
+    </form>
+    <script src="apps.js"></script>
+</body>
+</html>
